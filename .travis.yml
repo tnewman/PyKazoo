@@ -3,7 +3,10 @@ language: python
 python:
   - "3.4"
 
-install: "pip install -r requirements.txt"
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+
 
 script: py.test --cov=pykazoo --pep8
 
