@@ -1,5 +1,5 @@
 # PyKazoo
-[![Stories in Ready](https://badge.waffle.io/tnewman/PyKazoo.png?label=ready&title=Ready)](https://waffle.io/tnewman/PyKazoo)
+[![Stories in Ready](https://badge.waffle.io/tnewman/PyKazoo.png?label=ready&title=Ready) (Scrum Board)](https://waffle.io/tnewman/PyKazoo)
 [![Build Status](https://travis-ci.org/tnewman/PyKazoo.svg?branch=master)](https://travis-ci.org/tnewman/PyKazoo)
 [![Coverage Status](https://coveralls.io/repos/tnewman/PyKazoo/badge.svg?branch=master&service=github)](https://coveralls.io/github/tnewman/PyKazoo?branch=master)
 
