@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pytest
 import setuptools
 from distutils.core import setup, Command
