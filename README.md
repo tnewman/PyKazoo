@@ -1,5 +1,6 @@
 # PyKazoo
 [![Build Status](https://travis-ci.org/tnewman/PyKazoo.svg?branch=master)](https://travis-ci.org/tnewman/PyKazoo)
+[![Coverage Status](https://coveralls.io/repos/tnewman/PyKazoo/badge.svg?branch=master&service=github)](https://coveralls.io/github/tnewman/PyKazoo?branch=master)
 
 PyKazoo is a Python API client for [2600hz Kazoo](https://2600hz.atlassian.net/wiki/display/docs/Overview). 2600hz 
 Kazoo is an excellent, scalable VoIP (Voice over IP) platform, which exclusively uses a JSON API for configuration. 
