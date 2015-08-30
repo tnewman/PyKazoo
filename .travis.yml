@@ -7,7 +7,6 @@ install:
   - pip install -r requirements.txt
   - pip install coveralls
 
-
 script: py.test  --cov=pykazoo --pep8
 
 after_success:
