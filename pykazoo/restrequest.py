@@ -27,6 +27,7 @@ class RestRequest:
 
         url = str(self.api_url) + '/' + str(action)
 
-        response = self.rest_client.request(verb, url, headers=self.headers, data=data, params=params)
+        response = self.rest_client.request(verb, url, headers=self.headers,
+                                            data=data, params=params)
 
         return response
