@@ -33,8 +33,8 @@ class RestRequest:
         if response.status_code in [200, 201]:
             return response.json()
         else:
-            message = 'Error Code: ' + str(response.status_code) + ' Data: ' + \
-                      str(response.content)
+            message = 'Error Code: ' + str(response.status_code) + ' Data: ' \
+                      + str(response.content)
 
             if response.status_code in [400, 404, 415]:
                 raise ValueError(message)
