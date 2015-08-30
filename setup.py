@@ -22,11 +22,13 @@ setup(
     name='PyKazoo',
     version='0.0.a0',
     packages=setuptools.find_packages(),
+    include_package_data = True,
     package_data={'': ['LICENSE.md', 'README.md', '.coveragerc']},
     install_requires=open('requirements.txt').readlines(),
     url='https://github.com/tnewman/PyKazoo',
     license='MIT',
     author='Thomas Newman',
+    author_email='tnewman@users.noreply.github.com',
     description='PyKazoo is a Python API client for 2600hz Kazoo',
     cmdclass={'test': PyTest},
 )
