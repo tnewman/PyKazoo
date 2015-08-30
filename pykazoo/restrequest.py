@@ -30,4 +30,17 @@ class RestRequest:
         response = self.rest_client.request(verb, url, headers=self.headers,
                                             data=data, params=params)
 
-        return response
+        if response.status_code in [200, 201]:
+            return response.json()
+        else:
+            message = 'Error Code: ' + str(response.status_code) + ' Data: ' + \
+                      str(response.content)
+
+            if response.status_code in [400, 404, 415]:
+                raise ValueError(message)
+            elif response.status_code in [401]:
+                raise PermissionError(message)
+            elif response.status_code in [500, 503, 504]:
+                raise ConnectionError(message)
+            else:
+                raise RuntimeError(message)
