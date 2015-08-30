@@ -8,7 +8,7 @@ install:
   - pip install coveralls
 
 
-script: py.test
+script: py.test  --cov=pykazoo --pep8
 
 after_success:
   - coveralls
