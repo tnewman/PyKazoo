@@ -8,7 +8,7 @@ setup(
     name='PyKazoo',
     version='0.0a1',
     packages=['pykazoo'],
-    install_requires=['requests==2.7.0'],
+    install_requires=['requests>=2.7.0'],
     url='https://github.com/tnewman/PyKazoo',
     license='MIT',
     author='Thomas Newman',
