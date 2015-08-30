@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# noinspection PyUnresolvedReferences
+import setuptools
 from distutils.core import setup
 
 setup(
