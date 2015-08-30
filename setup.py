@@ -1,34 +1,15 @@
 #!/usr/bin/env python3
 
-import pytest
-import setuptools
-from distutils.core import setup, Command
-
-
-class PyTest(Command):
-    user_options = []
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        errorno = pytest.main('--cov=pykazoo --pep8')
-        raise SystemExit(errorno)
+from distutils.core import setup
 
 setup(
     name='PyKazoo',
-    version='0.0.a0',
-    packages=setuptools.find_packages(),
-    include_package_data = True,
-    package_data={'': ['LICENSE.md', 'README.md', '.coveragerc']},
-    install_requires=open('requirements.txt').readlines(),
+    version='0.0a1',
+    packages=['pykazoo'],
+    install_requires=['requests==2.7.0'],
     url='https://github.com/tnewman/PyKazoo',
     license='MIT',
     author='Thomas Newman',
     author_email='tnewman@users.noreply.github.com',
     description='PyKazoo is a Python API client for 2600hz Kazoo',
-    cmdclass={'test': PyTest},
 )
