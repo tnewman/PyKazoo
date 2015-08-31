@@ -99,7 +99,7 @@ class RestRequest:
             message = 'Error Code: ' + str(response.status_code) + ' Data: ' \
                       + str(response.content)
 
-            if response.status_code in [400, 404, 415]:
+            if response.status_code in [400, 404, 405, 415]:
                 raise ValueError(message)
             elif response.status_code in [401]:
                 raise PermissionError(message)
