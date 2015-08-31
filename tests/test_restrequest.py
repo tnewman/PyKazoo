@@ -1,3 +1,4 @@
+import json
 from unittest import TestCase
 from unittest.mock import Mock
 from pykazoo.restrequest import RestRequest
@@ -17,6 +18,7 @@ class TestRestRequest(TestCase):
         self.action = 'action'
         self.url = 'localhost'
         self.sample_data = {'test': 'data'}
+        self.sample_data_json = json.dumps(self.sample_data)
         self.sample_params = {'test': 'param'}
         self.proper_url = self.url + '/' + self.action
 
@@ -31,30 +33,30 @@ class TestRestRequest(TestCase):
         self.assert_mock_requests_called_with('GET', self.proper_url,
                                               data=None,
                                               params=self.sample_params,
-                                              headers={'content-type':
+                                              headers={'Content-Type':
                                                        'application/json'})
 
     def test_put_sets_proper_request(self):
         self.rest_request.put(self.action, self.sample_data)
         self.assert_mock_requests_called_with('PUT', self.proper_url,
-                                              data=self.sample_data,
+                                              data=self.sample_data_json,
                                               params=None,
-                                              headers={'content-type':
+                                              headers={'Content-Type':
                                                        'application/json'})
 
     def test_post_sets_proper_request(self):
         self.rest_request.post(self.action, self.sample_data)
         self.assert_mock_requests_called_with('POST', self.proper_url,
-                                              data=self.sample_data,
+                                              data=self.sample_data_json,
                                               params=None,
-                                              headers={'content-type':
+                                              headers={'Content-Type':
                                                        'application/json'})
 
     def test_delete_sets_proper_request(self):
         self.rest_request.delete(self.action)
         self.assert_mock_requests_called_with('DELETE', self.proper_url,
                                               data=None, params=None,
-                                              headers={'content-type':
+                                              headers={'Content-Type':
                                                        'application/json'})
 
     def test_auth_token_header_when_auth_token_set(self):
@@ -62,7 +64,7 @@ class TestRestRequest(TestCase):
         self.rest_request.delete(self.action)
         self.assert_mock_requests_called_with('DELETE', self.proper_url,
                                               data=None, params=None,
-                                              headers={'content-type':
+                                              headers={'Content-Type':
                                                        'application/json',
                                                        'X-Auth-Token':
                                                        'TOKEN'})
@@ -90,6 +92,11 @@ class TestRestRequest(TestCase):
 
     def test_404_response_code_raises_value_error(self):
         self.return_value_mock.status_code = 404
+
+        self.assertRaises(ValueError, self.rest_request.delete, self.action)
+
+    def test_405_response_code_raises_value_error(self):
+        self.return_value_mock.status_code = 405
 
         self.assertRaises(ValueError, self.rest_request.delete, self.action)
 
