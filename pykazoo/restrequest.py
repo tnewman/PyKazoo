@@ -1,3 +1,4 @@
+import json
 import requests
 
 
@@ -10,7 +11,6 @@ class RestRequest:
         :param rest_client: The module used to make requests.
         :type api_url: str, None
         :type auth_token: str, None
-        :type rest_client: requests
     """
 
     def __init__(self, api_url, auth_token=None, rest_client=requests):
@@ -83,10 +83,13 @@ class RestRequest:
         :rtype: dict
         """
 
-        self.headers = {'content-type': 'application/json'}
+        self.headers = {'Content-Type': 'application/json'}
 
         if self.auth_token:
             self.headers['X-Auth-Token'] = self.auth_token
+
+        if data:
+            data = json.dumps(data)
 
         url = str(self.api_url) + '/' + str(action)
 
