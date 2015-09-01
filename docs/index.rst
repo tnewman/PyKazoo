@@ -14,7 +14,9 @@ Contents:
    pykazoo/accounts
    pykazoo/authentication
    pykazoo/client
+   pykazoo/devices
    pykazoo/restrequest
+   pykazoo/users
 
 Indices and tables
 ==================
