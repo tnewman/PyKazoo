@@ -25,6 +25,7 @@ class TestAccounts(TestCase):
     def test_get_account_returns_dict(self):
         self.mock_rest_request.get.return_value = self.data
         return_data = self.accounts.get_account(self.account_id, self.params)
+        
         assert return_data is self.data
 
     def test_get_account_children_request_call(self):
