@@ -67,7 +67,7 @@ class TestUsers(TestCase):
     def test_update_user_returns_dict(self):
         self.mock_rest_request.post.return_value = self.data
         return_data = self.users.update_user(self.account_id,
-                                               self.user_id, self.data)
+                                             self.user_id, self.data)
 
         assert return_data is self.data
 
