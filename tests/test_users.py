@@ -9,7 +9,7 @@ class TestUsers(TestCase):
         self.mock_rest_request = create_autospec(
             pykazoo.restrequest.RestRequest)
 
-        self.users = pykazoo.users.Devices(
+        self.users = pykazoo.users.Users(
             self.mock_rest_request)
 
         self.account_id = '123joj34af83jf438afj43af'

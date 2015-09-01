@@ -30,6 +30,7 @@ class Devices:
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
+        :type device_id: str
         :type filters: dict
         :rtype: dict
         """
@@ -46,8 +47,8 @@ class Devices:
         :type data: dict
         :rtype: dict
         """
-        return self.rest_request.put('accounts/' + account_id + '/devices',
-                                     data)
+        return self.rest_request.put('accounts/' + str(account_id) +
+                                     '/devices', data)
 
     def update_device(self, account_id, device_id, data):
         """ Updates a Device
@@ -72,5 +73,5 @@ class Devices:
         :return: Kazoo Data (see official API docs).
         :rtype: dict
         """
-        return self.rest_request.delete('accounts/' + account_id +
-                                        '/devices/' + device_id)
+        return self.rest_request.delete('accounts/' + str(account_id) +
+                                        '/devices/' + str(device_id))

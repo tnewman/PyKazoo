@@ -17,6 +17,7 @@ Contents:
    pykazoo/devices
    pykazoo/restrequest
    pykazoo/users
+   pykazoo/voicemailboxes
 
 Indices and tables
 ==================

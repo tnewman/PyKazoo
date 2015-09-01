@@ -1,4 +1,4 @@
-class Devices:
+class Users:
     """  2600hz Kazoo Users API.
 
         :param rest_request: The request client to use.
@@ -23,13 +23,14 @@ class Devices:
                                      '/users', filters)
 
     def get_user(self, account_id, user_id, filters):
-        """ Get a specific Devices for an Account.
+        """ Get a specific User for an Account.
 
         :param account_id: ID of Account to get User for.
         :param user_id: ID of the User to get.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
+        :type user_id: str
         :type filters: dict
         :rtype: dict
         """
@@ -37,7 +38,7 @@ class Devices:
                                      '/users/' + str(user_id), filters)
 
     def create_user(self, account_id, data):
-        """ Create a Device
+        """ Create a User
 
         :param account_id: ID of Account to create User for.
         :param data: Kazoo User data (see official API Docs).
@@ -46,7 +47,8 @@ class Devices:
         :type data: dict
         :rtype: dict
         """
-        return self.rest_request.put('accounts/' + account_id + '/users', data)
+        return self.rest_request.put('accounts/' + str(account_id) + '/users',
+                                     data)
 
     def update_user(self, account_id, user_id, data):
         """ Updates a User
@@ -71,5 +73,5 @@ class Devices:
         :return: Kazoo Data (see official API docs).
         :rtype: dict
         """
-        return self.rest_request.delete('accounts/' + account_id +
-                                        '/users/' + user_id)
+        return self.rest_request.delete('accounts/' + str(account_id) +
+                                        '/users/' + str(user_id))
