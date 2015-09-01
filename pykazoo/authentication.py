@@ -6,7 +6,7 @@ class Authentication:
 
         :param rest_request: The request client to use.
             (optional, default: pykazoo.RestRequest())
-        :type rest_request: pykazoo.restrequest.RestRequest()
+        :type rest_request: pykazoo.restrequest.RestRequest
     """
 
     def __init__(self, rest_request):
