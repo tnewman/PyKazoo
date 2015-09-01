@@ -27,6 +27,7 @@ class TestDevices(TestCase):
     def test_get_devices_returns_dict(self):
         self.mock_rest_request.get.return_value = self.data
         return_data = self.devices.get_devices(self.account_id, self.params)
+
         assert return_data is self.data
 
     def test_get_device_request_call(self):
@@ -41,6 +42,7 @@ class TestDevices(TestCase):
         self.mock_rest_request.get.return_value = self.data
         return_data = self.devices.get_device(self.account_id, self.device_id,
                                               self.params)
+
         assert return_data is self.data
 
     def test_create_device_request_call(self):

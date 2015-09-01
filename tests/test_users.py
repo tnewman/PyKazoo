@@ -27,6 +27,7 @@ class TestUsers(TestCase):
     def test_get_users_returns_dict(self):
         self.mock_rest_request.get.return_value = self.data
         return_data = self.users.get_users(self.account_id, self.params)
+
         assert return_data is self.data
 
     def test_get_user_request_call(self):
@@ -41,6 +42,7 @@ class TestUsers(TestCase):
         self.mock_rest_request.get.return_value = self.data
         return_data = self.users.get_user(self.account_id, self.user_id,
                                           self.params)
+
         assert return_data is self.data
 
     def test_create_user_request_call(self):

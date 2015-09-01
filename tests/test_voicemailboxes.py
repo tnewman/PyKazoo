@@ -33,7 +33,7 @@ class TestVoicemailBoxes(TestCase):
     def test_get_voicemail_box_request_call(self):
         self.voicemail_boxes.get_voicemail_box(self.account_id,
                                                self.voicemail_box_id,
-                                     self.params)
+                                               self.params)
         self.mock_rest_request.get.assert_called_with('accounts/' +
                                                       self.account_id +
                                                       '/vmboxes/' +
@@ -42,9 +42,9 @@ class TestVoicemailBoxes(TestCase):
 
     def test_get_voicemail_box_returns_dict(self):
         self.mock_rest_request.get.return_value = self.data
-        return_data = self.voicemail_boxes.get_voicemail_box(self.account_id,
-                                                   self.voicemail_box_id,
-                                                   self.params)
+        return_data = self.voicemail_boxes.get_voicemail_box(
+            self.account_id, self.voicemail_box_id, self.params)
+
         assert return_data is self.data
 
     def test_create_voicemail_box_request_call(self):
