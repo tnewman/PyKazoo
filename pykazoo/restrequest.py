@@ -5,12 +5,14 @@ import requests
 class RestRequest:
     """ Makes a request to 2600hz Kazoo API using HTTP.
 
-        :param api_url: The Kazoo API URL (ex: http://localhost:8000/v2).
-        :param auth_token: The auth token to send in the header. Should be
-            None if authentication is not used.
-        :param rest_client: The module used to make requests.
-        :type api_url: str, None
-        :type auth_token: str, None
+    :param api_url: The Kazoo API URL (ex: http://localhost:8000/v2).
+    :param auth_token: The auth token to send in the header. Should be
+        None if authentication is not used.
+    :param rest_client: The module used to make requests.
+        (optional, default: requests)
+    :type api_url: str, None
+    :type auth_token: str, None
+    :type rest_client: requests
     """
 
     def __init__(self, api_url, auth_token=None, rest_client=requests):
@@ -23,7 +25,7 @@ class RestRequest:
 
         :param action: The Kazoo API Action (example: /accounts/{id}).
         :param params: The query string parameters (example: filters).
-        :return: Response Content
+        :return: Response Content.
         :type action: str
         :type params: dict, None
         :rtype: dict
@@ -36,7 +38,7 @@ class RestRequest:
 
         :param action: The Kazoo API Action (example: /accounts/{id}).
         :param data: The data to PUT.
-        :return: Response Content
+        :return: Response Content.
         :type action: str
         :type data: dict, None
         :rtype: dict
@@ -49,7 +51,7 @@ class RestRequest:
 
         :param action: The Kazoo API Action (example: /accounts/{id}).
         :param data: The data to POST.
-        :return: Response Content
+        :return: Response Content.
         :type action: str
         :type data: dict, None
         :rtype: dict
@@ -61,7 +63,7 @@ class RestRequest:
         """ Performs a Kazoo API DELETE request.
 
         :param action: The Kazoo API Action (example: /accounts/{id}).
-        :return: Response Content
+        :return: Response Content.
         :type action: str
         :rtype: dict
         """
@@ -75,7 +77,7 @@ class RestRequest:
         :param action: The Kazoo API Action (example: /accounts/{id}).
         :param data: The data to submit.
         :param params: The query string parameters (example: filters).
-        :return: Response Content
+        :return: Response Content.
         :type verb: str
         :type action: str
         :type data: dict, None
