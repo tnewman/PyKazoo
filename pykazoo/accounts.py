@@ -90,6 +90,7 @@ class Accounts:
 
         :param account_id: ID of Account.
         :return: Kazoo Data (see official API docs).
+        :type account_id: str
         :rtype: dict
         """
         return self.rest_request.delete('accounts/' + str(account_id))

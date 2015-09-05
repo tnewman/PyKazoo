@@ -73,6 +73,8 @@ class VoicemailBoxes:
         :param account_id: ID of Account to delete VoicemailBox from.
         :param voicemail_box_id: ID of VoicemailBox to delete.
         :return: Kazoo Data (see official API docs).
+        :type account_id: str
+        :type voicemail_box_id: str
         :rtype: dict
         """
         return self.rest_request.delete('accounts/' + str(account_id) +

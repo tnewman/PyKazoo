@@ -71,6 +71,8 @@ class Devices:
         :param account_id: ID of Account to delete device from.
         :param device_id: ID of Device to delete.
         :return: Kazoo Data (see official API docs).
+        :type account_id: str
+        :type device_id: str
         :rtype: dict
         """
         return self.rest_request.delete('accounts/' + str(account_id) +
