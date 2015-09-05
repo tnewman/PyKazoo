@@ -13,6 +13,7 @@ Contents:
 
    pykazoo/accounts
    pykazoo/authentication
+   pykazoo/callflows
    pykazoo/client
    pykazoo/devices
    pykazoo/restrequest
