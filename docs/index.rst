@@ -16,6 +16,7 @@ Contents:
    pykazoo/callflows
    pykazoo/client
    pykazoo/devices
+   pykazoo/phonenumbers
    pykazoo/restrequest
    pykazoo/users
    pykazoo/voicemailboxes
