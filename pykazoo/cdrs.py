@@ -1,5 +1,5 @@
 class CDRs:
-    """  2600hz Kazoo Callflows API.
+    """  2600hz Kazoo CDRs API.
 
         :param rest_request: The request client to use.
             (optional, default: pykazoo.RestRequest())

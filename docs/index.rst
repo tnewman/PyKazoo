@@ -17,6 +17,7 @@ Contents:
    pykazoo/cdrs
    pykazoo/client
    pykazoo/devices
+   pykazoo/menus
    pykazoo/phonenumbers
    pykazoo/restrequest
    pykazoo/users
