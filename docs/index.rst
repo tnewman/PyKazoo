@@ -19,6 +19,7 @@ Contents:
    pykazoo/devices
    pykazoo/menus
    pykazoo/phonenumbers
+   pykazoo/resources
    pykazoo/restrequest
    pykazoo/users
    pykazoo/voicemailboxes
