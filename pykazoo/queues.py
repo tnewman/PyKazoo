@@ -65,8 +65,7 @@ class Queues:
         return self.rest_request.post('accounts/' + str(account_id) +
                                       '/queues/' + str(queue_id), data)
 
-    def delete_queue\
-                    (self, account_id, queue_id):
+    def delete_queue(self, account_id, queue_id):
         """ Deletes a Queue
 
         :param account_id: ID of Account to delete Queue from.
