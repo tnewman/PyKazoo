@@ -3,11 +3,12 @@ import pykazoo.voicemailboxes
 from unittest import TestCase
 from unittest.mock import create_autospec
 
+mock_rest_request = create_autospec(pykazoo.restrequest.RestRequest)
+
 
 class TestVoicemailBoxes(TestCase):
     def setUp(self):
-        self.mock_rest_request = create_autospec(
-            pykazoo.restrequest.RestRequest)
+        self.mock_rest_request = mock_rest_request
 
         self.voicemail_boxes = pykazoo.voicemailboxes.VoicemailBoxes(
             self.mock_rest_request)
