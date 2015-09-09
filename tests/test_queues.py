@@ -88,7 +88,8 @@ class TestQueues(TestCase):
 
     def test_get_queues_stats_returns_dict(self):
         self.mock_rest_request.get.return_value = self.data
-        return_data = self.queues.get_queues_stats(self.account_id, self.params)
+        return_data = self.queues.get_queues_stats(self.account_id,
+                                                   self.params)
 
         assert return_data is self.data
 
