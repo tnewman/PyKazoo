@@ -23,6 +23,7 @@ Contents:
    pykazoo/phonenumbers
    pykazoo/resources
    pykazoo/restrequest
+   pykazoo/timedroutes
    pykazoo/users
    pykazoo/voicemailboxes
 
