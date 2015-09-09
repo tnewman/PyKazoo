@@ -4,7 +4,7 @@ from unittest import TestCase
 from unittest.mock import create_autospec
 
 
-class TestDevices(TestCase):
+class TestAgents(TestCase):
     def setUp(self):
         self.mock_rest_request = create_autospec(
             pykazoo.restrequest.RestRequest)
