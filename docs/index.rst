@@ -18,6 +18,7 @@ Contents:
    pykazoo/cdrs
    pykazoo/client
    pykazoo/devices
+   pykazoo/directories
    pykazoo/menus
    pykazoo/phonenumbers
    pykazoo/resources
