@@ -77,3 +77,16 @@ class Devices:
         """
         return self.rest_request.delete('accounts/' + str(account_id) +
                                         '/devices/' + str(device_id))
+
+    def get_devices_status(self, account_id, filters):
+        """ Gets Devices Status
+
+        :param account_id: ID of Account to get device statuses for.
+        :param filters: Kazoo Filter Parameters (see official API docs).
+        :return: Kazoo Data (see official API docs).
+        :type account_id: str
+        :type filters: dict
+        :rtype: dict
+        """
+        return self.rest_request.get('accounts/' + str(account_id) +
+                                     '/devices/status', filters)

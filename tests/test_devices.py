@@ -86,3 +86,17 @@ class TestDevices(TestCase):
                                                  self.device_id)
 
         assert return_data is self.data
+
+    def test_get_devices_status_returns_dict(self):
+        self.mock_rest_request.get.return_value = self.data
+        return_data = self.devices.get_devices_status(self.account_id,
+                                                      self.params)
+
+        assert return_data is self.data
+
+    def test_get_devices_status_request_call(self):
+        self.devices.get_devices_status(self.account_id, self.params)
+        self.mock_rest_request.get.assert_called_with('accounts/' +
+                                                      self.account_id +
+                                                      '/devices/status',
+                                                      self.params)

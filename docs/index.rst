@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    pykazoo/accounts
+   pykazoo/agents
    pykazoo/authentication
    pykazoo/callflows
    pykazoo/cdrs
