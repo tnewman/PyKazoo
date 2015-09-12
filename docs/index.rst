@@ -23,6 +23,7 @@ Contents:
    pykazoo/faxes
    pykazoo/menus
    pykazoo/phonenumbers
+   pykazoo/quickcalls
    pykazoo/resources
    pykazoo/restrequest
    pykazoo/timedroutes
