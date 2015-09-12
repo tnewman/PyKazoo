@@ -16,6 +16,7 @@ Contents:
    pykazoo/authentication
    pykazoo/callflows
    pykazoo/cdrs
+   pykazoo/clicktocalls
    pykazoo/client
    pykazoo/devices
    pykazoo/directories
