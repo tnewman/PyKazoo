@@ -37,17 +37,17 @@ class Menus:
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/menus/' + str(menu_id), filters)
 
-    def create_menu(self, menu_id, data):
+    def create_menu(self, account_id, data):
         """ Create a Menu
 
-        :param menu_id: ID of Account to create a menu for.
+        :param account_id: ID of Account to create a menu for.
         :param data: Kazoo Device data (see official API Docs).
         :return: Kazoo Data (see official API docs).
-        :type menu_id: str
+        :type account_id: str
         :type data: dict
         :rtype: dict
         """
-        return self.rest_request.put('accounts/' + str(menu_id) +
+        return self.rest_request.put('accounts/' + str(account_id) +
                                      '/menus', data)
 
     def update_menu(self, account_id, menu_id, data):

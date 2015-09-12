@@ -19,6 +19,7 @@ Contents:
    pykazoo/client
    pykazoo/devices
    pykazoo/directories
+   pykazoo/faxes
    pykazoo/menus
    pykazoo/phonenumbers
    pykazoo/resources
