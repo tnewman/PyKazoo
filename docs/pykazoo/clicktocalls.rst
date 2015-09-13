@@ -1,6 +1,6 @@
 pykazoo.clicktocalls
 ====================
 
-.. automodule:: pykazoo.clicktocall
+.. automodule:: pykazoo.clicktocalls
    :members:
    :undoc-members:
