@@ -29,7 +29,6 @@ class TestDevices(TestCase):
 
         assert return_data is self.data
 
-
     def test_get_webhooks_request_call(self):
         self.webhooks.get_webhooks(self.account_id, self.params)
         self.mock_rest_request.get.assert_called_with('accounts/' +
@@ -44,7 +43,8 @@ class TestDevices(TestCase):
         assert return_data is self.data
 
     def test_get_webhook_request_call(self):
-        self.webhooks.get_webhook(self.account_id, self.webhook_id, self.params)
+        self.webhooks.get_webhook(self.account_id, self.webhook_id,
+                                  self.params)
         self.mock_rest_request.get.assert_called_with('accounts/' +
                                                       self.account_id +
                                                       '/webhooks/' +
