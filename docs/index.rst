@@ -13,6 +13,7 @@ Contents:
    pykazoo/cdrs
    pykazoo/clicktocalls
    pykazoo/client
+   pykazoo/conferences
    pykazoo/devices
    pykazoo/directories
    pykazoo/faxes
@@ -20,12 +21,14 @@ Contents:
    pykazoo/menus
    pykazoo/metaflows
    pykazoo/phonenumbers
+   pykazoo/queues
    pykazoo/quickcalls
    pykazoo/resources
    pykazoo/restrequest
    pykazoo/timedroutes
    pykazoo/users
    pykazoo/voicemailboxes
+   pykazoo/webhooks
 
 Indices and tables
 ==================
