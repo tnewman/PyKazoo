@@ -18,6 +18,7 @@ Contents:
    pykazoo/faxes
    pykazoo/hotdesks
    pykazoo/menus
+   pykazoo/metaflows
    pykazoo/phonenumbers
    pykazoo/quickcalls
    pykazoo/resources
