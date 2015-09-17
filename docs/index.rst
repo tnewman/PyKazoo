@@ -18,6 +18,7 @@ Contents:
    pykazoo/directories
    pykazoo/faxes
    pykazoo/hotdesks
+   pykazoo/media
    pykazoo/menus
    pykazoo/metaflows
    pykazoo/phonenumbers
@@ -36,4 +37,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
