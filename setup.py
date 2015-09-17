@@ -21,7 +21,7 @@ class PyTest(Command):
 setup(
     cmdclass={'test': PyTest},
     name='PyKazoo',
-    version='0.0a1',
+    version='0.0a2',
     packages=['pykazoo'],
     install_requires=['requests'],
     tests_require=['pytest', 'pytest-cov', 'pytest-pep8'],
