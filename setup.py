@@ -2,13 +2,29 @@
 
 # noinspection PyUnresolvedReferences
 import setuptools
-from distutils.core import setup
+from distutils.core import setup, Command
+
+
+class PyTest(Command):
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        import pytest
+        pytest.main(['--pep8', '--cov'])
 
 setup(
+    cmdclass={'test': PyTest},
     name='PyKazoo',
     version='0.0a1',
     packages=['pykazoo'],
-    install_requires=['requests>=2.7.0'],
+    install_requires=['requests'],
+    tests_require=['pytest', 'pytest-cov', 'pytest-pep8'],
     url='https://github.com/tnewman/PyKazoo',
     license='MIT',
     author='Thomas Newman',
