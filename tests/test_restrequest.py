@@ -69,6 +69,16 @@ class TestRestRequest(TestCase):
                                                        'X-Auth-Token':
                                                        'TOKEN'})
 
+    def test_content_type_when_content_type_set(self):
+        self.rest_request.auth_token = 'TOKEN'
+        self.rest_request.get(self.action, content_type='application/x-base64')
+        self.assert_mock_requests_called_with('GET', self.proper_url,
+                                              data=None, params=None,
+                                              headers={'Content-Type':
+                                                       'application/x-base64',
+                                                       'X-Auth-Token':
+                                                       'TOKEN'})
+
     def test_200_response_code_returns_json(self):
         self.return_value_mock.status_code = 200
 

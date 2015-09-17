@@ -20,57 +20,69 @@ class RestRequest:
         self.auth_token = auth_token
         self.rest_client = rest_client
 
-    def get(self, action, params=None):
+    def get(self, action, params=None, content_type=None):
         """ Performs a Kazoo API GET request.
 
         :param action: The Kazoo API Action (example: /accounts/{id}).
         :param params: The query string parameters (example: filters).
+        :param content_type: The content type for the get request. Will
+                             default to JSON if left unset.
         :return: Response Content.
         :type action: str
         :type params: dict, None
+        :type content_type: str
         :rtype: dict
         """
 
-        return self._request('GET', action, None, params)
+        return self._request('GET', action, None, params, content_type)
 
-    def put(self, action, data=None):
+    def put(self, action, data=None, content_type=None):
         """ Performs a Kazoo API PUT request.
 
         :param action: The Kazoo API Action (example: /accounts/{id}).
         :param data: The data to PUT.
+        :param content_type: The content type for the get request. Will
+                             default to JSON if left unset.
         :return: Response Content.
         :type action: str
         :type data: dict, None
+        :type content_type: str
         :rtype: dict
         """
 
-        return self._request('PUT', action, data, None)
+        return self._request('PUT', action, data, None, content_type)
 
-    def post(self, action, data=None):
+    def post(self, action, data=None, content_type=None):
         """ Performs a Kazoo API POST request.
 
         :param action: The Kazoo API Action (example: /accounts/{id}).
         :param data: The data to POST.
+        :param content_type: The content type for the get request. Will
+                             default to JSON if left unset.
         :return: Response Content.
         :type action: str
         :type data: dict, None
+        :type content_type: str
         :rtype: dict
         """
 
-        return self._request('POST', action, data, None)
+        return self._request('POST', action, data, None, content_type)
 
-    def delete(self, action):
+    def delete(self, action, content_type=None):
         """ Performs a Kazoo API DELETE request.
 
         :param action: The Kazoo API Action (example: /accounts/{id}).
+        :param content_type: The content type for the get request. Will
+                             default to JSON if left unset.
         :return: Response Content.
         :type action: str
+        :type content_type: str
         :rtype: dict
         """
 
-        return self._request('DELETE', action, None, None)
+        return self._request('DELETE', action, None, None, content_type)
 
-    def _request(self, verb, action, data, params):
+    def _request(self, verb, action, data, params, content_type):
         """ Makes a request to the request client and validates the response.
 
         :param verb: HTTP Verb (GET, PUT, POST, DELETE).
@@ -84,8 +96,12 @@ class RestRequest:
         :type params: dict, None
         :rtype: dict
         """
+        if not content_type:
+            content_type = {'Content-Type': 'application/json'}
+        else:
+            content_type = {'Content-Type': content_type}
 
-        self.headers = {'Content-Type': 'application/json'}
+        self.headers = content_type
 
         if self.auth_token:
             self.headers['X-Auth-Token'] = self.auth_token
