@@ -1,35 +1,18 @@
-Welcome to PyKazoo's documentation!
-===================================
+Pykazoo Documentation
+=====================
 
-Contents:
+PyKazoo is a Python API client for `2600hz Kazoo`_. `2600hz Kazoo`_ is an
+excellent, scalable VoIP (Voice over IP) platform, which exclusively uses a
+JSON API for configuration. The goal of PyKazoo is to provide an easy way for
+Python developers to interface with this excellent software to start building
+great applications.
+
+.. _`2600hz Kazoo`: https://2600hz.atlassian.net/wiki/display/docs/Overview
 
 .. toctree::
    :maxdepth: 2
 
-   pykazoo/accounts
-   pykazoo/agents
-   pykazoo/authentication
-   pykazoo/callflows
-   pykazoo/cdrs
-   pykazoo/clicktocalls
-   pykazoo/client
-   pykazoo/conferences
-   pykazoo/devices
-   pykazoo/directories
-   pykazoo/faxes
-   pykazoo/hotdesks
-   pykazoo/media
-   pykazoo/menus
-   pykazoo/metaflows
-   pykazoo/phonenumbers
-   pykazoo/queues
-   pykazoo/quickcalls
-   pykazoo/resources
-   pykazoo/restrequest
-   pykazoo/timedroutes
-   pykazoo/users
-   pykazoo/voicemailboxes
-   pykazoo/webhooks
+   api
 
 Indices and tables
 ==================
@@ -37,3 +20,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
