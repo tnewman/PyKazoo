@@ -9,7 +9,8 @@ class QuickCalls:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def quick_call_device(self, account_id, device_id, phone_number, filters):
+    def quick_call_device(self, account_id, device_id, phone_number,
+                          filters=None):
         """ Perform a Quick Call for a Device.
 
         :param account_id: ID of Account for Quick Call.
@@ -18,7 +19,7 @@ class QuickCalls:
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
@@ -26,7 +27,7 @@ class QuickCalls:
                                      '/quickcall/' + str(phone_number),
                                      filters)
 
-    def quick_call_user(self, account_id, user_id, phone_number, filters):
+    def quick_call_user(self, account_id, user_id, phone_number, filters=None):
         """ Perform a Quick Call for a User.
 
         :param account_id: ID of Account to get Click to Calls for.
@@ -36,7 +37,7 @@ class QuickCalls:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type user_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

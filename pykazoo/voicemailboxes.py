@@ -9,20 +9,20 @@ class VoicemailBoxes:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_voicemail_boxes(self, account_id, filters):
+    def get_voicemail_boxes(self, account_id, filters=None):
         """ Get all VoicemailBoxes for an Account.
 
         :param account_id: ID of Account to get VoicemailBoxes for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/vmboxes', filters)
 
-    def get_voicemail_box(self, account_id, voicemail_box_id, filters):
+    def get_voicemail_box(self, account_id, voicemail_box_id, filters=None):
         """ Get a specific VoicemailBoxes for an Account.
 
         :param account_id: ID of Account to get VoicemailBox for.
@@ -31,7 +31,7 @@ class VoicemailBoxes:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type voicemail_box_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

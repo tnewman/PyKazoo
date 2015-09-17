@@ -9,20 +9,20 @@ class Devices:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_devices(self, account_id, filters):
+    def get_devices(self, account_id, filters=None):
         """ Get all Devices for an Account.
 
         :param account_id: ID of Account to get devices for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/devices', filters)
 
-    def get_device(self, account_id, device_id, filters):
+    def get_device(self, account_id, device_id, filters=None):
         """ Get a specific Devices for an Account.
 
         :param account_id: ID of Account to get devices for.
@@ -31,7 +31,7 @@ class Devices:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type device_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
@@ -78,14 +78,14 @@ class Devices:
         return self.rest_request.delete('accounts/' + str(account_id) +
                                         '/devices/' + str(device_id))
 
-    def get_devices_status(self, account_id, filters):
+    def get_devices_status(self, account_id, filters=None):
         """ Gets Devices Status
 
         :param account_id: ID of Account to get device statuses for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

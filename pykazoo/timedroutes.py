@@ -9,20 +9,20 @@ class TimedRoutes:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_timed_routes(self, account_id, filters):
+    def get_timed_routes(self, account_id, filters=None):
         """ Get all Timed Routes for an Account.
 
         :param account_id: ID of Account to get Timed Routes for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/temporal_rules', filters)
 
-    def get_timed_route(self, account_id, timed_route_id, filters):
+    def get_timed_route(self, account_id, timed_route_id, filters=None):
         """ Get a specific Timed Route for an Account.
 
         :param account_id: ID of Account to get Directory for.
@@ -31,7 +31,7 @@ class TimedRoutes:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type timed_route_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

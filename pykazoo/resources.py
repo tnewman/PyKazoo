@@ -9,20 +9,20 @@ class Resources:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_resources(self, account_id, filters):
+    def get_resources(self, account_id, filters=None):
         """ Get all Resources for an Account.
 
         :param account_id: ID of Account to get Resources for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/resources', filters)
 
-    def get_resource(self, account_id, resource_id, filters):
+    def get_resource(self, account_id, resource_id, filters=None):
         """ Get a specific Resources for an Account.
 
         :param account_id: ID of Account to get devices for.
@@ -31,7 +31,7 @@ class Resources:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type resource_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

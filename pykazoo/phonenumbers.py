@@ -9,20 +9,20 @@ class PhoneNumbers:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_phone_numbers(self, account_id, filters):
+    def get_phone_numbers(self, account_id, filters=None):
         """ Get all Phone Numbers for an Account.
 
         :param account_id: ID of Account to get Phone Numbers for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/phone_numbers', filters)
 
-    def get_phone_number(self, account_id, phone_number, filters):
+    def get_phone_number(self, account_id, phone_number, filters=None):
         """ Get a specific Phone Number for an Account.
 
         :param account_id: ID of Account to get Phone Number for.
@@ -31,7 +31,7 @@ class PhoneNumbers:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type phone_number: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

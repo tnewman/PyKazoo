@@ -9,52 +9,52 @@ class Accounts:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_account(self, account_id, filters):
+    def get_account(self, account_id, filters=None):
         """ Get an Account
 
         :param account_id: ID of Account to get.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id), filters)
 
-    def get_account_children(self, account_id, filters):
+    def get_account_children(self, account_id, filters=None):
         """ Get the Children of an Account
 
         :param account_id: ID of Account to get.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/children', filters)
 
-    def get_account_descendants(self, account_id, filters):
+    def get_account_descendants(self, account_id, filters=None):
         """ Get the Descendants of an Account
 
         :param account_id: ID of Account to get.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/descendants', filters)
 
-    def get_account_siblings(self, account_id, filters):
+    def get_account_siblings(self, account_id, filters=None):
         """ Get the Siblings of an Account
 
         :param account_id: ID of Account to get.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

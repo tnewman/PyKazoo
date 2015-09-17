@@ -9,20 +9,20 @@ class Conferences:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_conferences(self, account_id, filters):
+    def get_conferences(self, account_id, filters=None):
         """ Get all Conferences for an Account.
 
         :param account_id: ID of Account to get Conferences for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/conferences', filters)
 
-    def get_conference(self, account_id, conference_id, filters):
+    def get_conference(self, account_id, conference_id, filters=None):
         """ Get a specific Conference for an Account.
 
         :param account_id: ID of Account to get Conferences for.
@@ -31,7 +31,7 @@ class Conferences:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type conference_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

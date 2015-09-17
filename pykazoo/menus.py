@@ -9,20 +9,20 @@ class Menus:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_menus(self, account_id, filters):
+    def get_menus(self, account_id, filters=None):
         """ Get all Menus for an Account.
 
         :param account_id: ID of Account to get menus for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/menus', filters)
 
-    def get_menu(self, account_id, menu_id, filters):
+    def get_menu(self, account_id, menu_id, filters=None):
         """ Get a specific Menu for an Account.
 
         :param account_id: ID of Account to get a menu for.
@@ -31,7 +31,7 @@ class Menus:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type menu_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

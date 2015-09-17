@@ -9,20 +9,20 @@ class ClickToCalls:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_click_to_calls(self, account_id, filters):
+    def get_click_to_calls(self, account_id, filters=None):
         """ Get all Click to Calls for an Account.
 
         :param account_id: ID of Account to get Click to Calls for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/clicktocall', filters)
 
-    def get_click_to_call(self, account_id, click_to_call_id, filters):
+    def get_click_to_call(self, account_id, click_to_call_id, filters=None):
         """ Get a specific Click to Call for an Account.
 
         :param account_id: ID of Account to get Click to Calls for.
@@ -31,7 +31,7 @@ class ClickToCalls:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type click_to_call_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
@@ -81,7 +81,8 @@ class ClickToCalls:
                                         '/clicktocall/' +
                                         str(click_to_call_id))
 
-    def connect_click_to_call(self, account_id, click_to_call_id, filters):
+    def connect_click_to_call(self, account_id, click_to_call_id,
+                              filters=None):
         """ Connects a Click to Call
 
         :param account_id: ID of Account to connect Click to Call for.
@@ -89,7 +90,7 @@ class ClickToCalls:
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.post('accounts/' + str(account_id) +
@@ -97,7 +98,8 @@ class ClickToCalls:
                                       str(click_to_call_id) + '/connect',
                                       filters)
 
-    def get_click_to_call_history(self, account_id, click_to_call_id, filters):
+    def get_click_to_call_history(self, account_id, click_to_call_id,
+                                  filters=None):
         """ Gets history for a  Click to Call
 
         :param account_id: ID of Account to get Click to Call history for.
@@ -105,7 +107,7 @@ class ClickToCalls:
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

@@ -9,20 +9,20 @@ class Hotdesks:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_hotdesks(self, account_id, filters):
+    def get_hotdesks(self, account_id, filters=None):
         """ Get all Hotdesks for an Account.
 
         :param account_id: ID of Account to get Hotdesks for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/users/hotdesks', filters)
 
-    def get_hotdesk(self, account_id, user_id, filters):
+    def get_hotdesk(self, account_id, user_id, filters=None):
         """ Get a User's Hotdesk for an Account.
 
         :param account_id: ID of Account to get Hotdesk for.
@@ -31,7 +31,7 @@ class Hotdesks:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type user_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

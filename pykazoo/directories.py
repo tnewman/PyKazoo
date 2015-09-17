@@ -9,20 +9,20 @@ class Directories:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_directories(self, account_id, filters):
+    def get_directories(self, account_id, filters=None):
         """ Get all Devices for an Account.
 
         :param account_id: ID of Account to get Directories for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/directories', filters)
 
-    def get_directory(self, account_id, directory_id, filters):
+    def get_directory(self, account_id, directory_id, filters=None):
         """ Get a specific Devices for an Account.
 
         :param account_id: ID of Account to get Directory for.
@@ -31,7 +31,7 @@ class Directories:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type directory_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

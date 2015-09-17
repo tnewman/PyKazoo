@@ -9,20 +9,20 @@ class Queues:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_queues(self, account_id, filters):
+    def get_queues(self, account_id, filters=None):
         """ Get all Queues for an Account.
 
         :param account_id: ID of Account to get Queues for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/queues', filters)
 
-    def get_queue(self, account_id, queue_id, filters):
+    def get_queue(self, account_id, queue_id, filters=None):
         """ Get a specific Queue for an Account.
 
         :param account_id: ID of Account to get Queues for.
@@ -31,7 +31,7 @@ class Queues:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type queue_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
@@ -78,14 +78,14 @@ class Queues:
         return self.rest_request.delete('accounts/' + str(account_id) +
                                         '/queues/' + str(queue_id))
 
-    def get_queues_stats(self, account_id, filters):
+    def get_queues_stats(self, account_id, filters=None):
         """ Gets Devices Status
 
         :param account_id: ID of Account to get Queues stats for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

@@ -9,20 +9,20 @@ class Media:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_all_media(self, account_id, filters):
+    def get_all_media(self, account_id, filters=None):
         """ Get all Media for an Account.
 
         :param account_id: ID of Account to get devices for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/media', filters)
 
-    def get_media(self, account_id, media_id, filters):
+    def get_media(self, account_id, media_id, filters=None):
         """ Get Media for an Account.
 
         :param account_id: ID of Account to get devices for.
@@ -31,7 +31,7 @@ class Media:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type media_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
@@ -78,7 +78,7 @@ class Media:
         return self.rest_request.delete('accounts/' + str(account_id) +
                                         '/media/' + str(media_id))
 
-    def get_raw_media(self, account_id, media_id, filters):
+    def get_raw_media(self, account_id, media_id, filters=None):
         """ Get Raw Media for an Account.
 
         :param account_id: ID of Account to get devices for.
@@ -87,7 +87,7 @@ class Media:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type media_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +

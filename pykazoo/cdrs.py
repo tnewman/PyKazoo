@@ -9,12 +9,12 @@ class CDRs:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_cdrs(self, filters):
+    def get_cdrs(self, filters=None):
         """ Get all CDRs.
 
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('cdrs', filters)

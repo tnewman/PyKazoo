@@ -9,30 +9,30 @@ class Webhooks:
     def __init__(self, rest_request):
         self.rest_request = rest_request
 
-    def get_system_webhooks(self, filters):
+    def get_system_webhooks(self, filters=None):
         """ Get all Webhooks for the System.
 
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('webhooks', filters)
 
-    def get_webhooks(self, account_id, filters):
+    def get_webhooks(self, account_id, filters=None):
         """ Get all Webhooks for an Account.
 
         :param account_id: ID of Account to get Webhooks for.
         :param filters: Kazoo Filter Parameters (see official API docs).
         :return: Kazoo Data (see official API docs).
         :type account_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
                                      '/webhooks', filters)
 
-    def get_webhook(self, account_id, webhook_id, filters):
+    def get_webhook(self, account_id, webhook_id, filters=None):
         """ Get a Webhook for an Account.
 
         :param account_id: ID of Account to get Webhook for.
@@ -41,7 +41,7 @@ class Webhooks:
         :return: Kazoo Data (see official API docs).
         :type account_id: str
         :type webhook_id: str
-        :type filters: dict
+        :type filters: dict, None
         :rtype: dict
         """
         return self.rest_request.get('accounts/' + str(account_id) +
