@@ -28,7 +28,7 @@ setup(
     version='0.0a2',
     packages=['pykazoo'],
     install_requires=['requests>=2.7.0'],
-    tests_require=['pytest>=2.7.2', 'pytest-cov>=2.1.0', 'pytest-pep8>=1.0.6'],
+    tests_require=['pytest>=2.6.4', 'pytest-cov>=2.1.0', 'pytest-pep8>=1.0.6'],
     url='https://github.com/tnewman/PyKazoo',
     license='MIT',
     author='Thomas Newman',
