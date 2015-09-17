@@ -4,11 +4,9 @@ python:
   - "3.4"
 
 install:
-  - pip install -r requirements.txt
-  - pip install -r test-requirements.txt
   - pip install coveralls
 
-script: py.test  --cov=pykazoo --pep8
+script: python setup.py test
 
 after_success:
   - coveralls

@@ -1,4 +1,0 @@
-# Test Suite Requirements
-pytest>=2.7.2
-pytest-cov>=2.1.0
-pytest-pep8>=1.0.6

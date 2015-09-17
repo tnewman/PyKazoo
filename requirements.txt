@@ -1,2 +1,0 @@
-# Runtime Requirements
-requests>=2.7.0
