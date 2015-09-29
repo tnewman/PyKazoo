@@ -62,3 +62,13 @@ class TestAuthentication(TestCase):
         self.authentication.user_auth('USER', 'PASS', 'ACCOUNT')
 
         assert self.mock_rest_request.auth_token is data['auth_token']
+
+    def test_authenticated_after_user_auth(self):
+        self.authentication.rest_request.auth_token = {'auth_token': 'TOKEN'}
+
+        assert self.authentication.authenticated
+
+    def test_authenticated_before_user_auth(self):
+        self.authentication.rest_request.auth_token = None
+
+        assert not self.authentication.authenticated

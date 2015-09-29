@@ -52,3 +52,14 @@ class Authentication:
         self.rest_request.auth_token = data['auth_token']
 
         return data
+
+    @property
+    def authenticated(self):
+        """ Checks whether or not the auth token has already been retrieved.
+        This is useful for rate limiting auth requests, which can be costly.
+
+        :return: Whether or not the auth token has already been retrieved.
+        :rtype: bool
+        """
+
+        return self.rest_request.auth_token is not None
