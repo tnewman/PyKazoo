@@ -18,6 +18,7 @@ class RestRequest:
     def __init__(self, api_url, auth_token=None, rest_client=requests):
         self.api_url = api_url
         self.auth_token = auth_token
+        self.account_id = None
         self.rest_client = rest_client
 
     def get(self, action, params=None, content_type=None):
