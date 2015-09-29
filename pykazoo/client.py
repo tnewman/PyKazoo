@@ -32,13 +32,16 @@ class PyKazooClient:
         :param api_url: The root URL that the API client should use (example:
                         https://localhost/v2)
         :param rest_request: The request client to use.
-            (optional, default: pykazoo.RestRequest())
+            (optional, default: pykazoo.restrequest.RestRequest)
         :type api_url: str
         :type rest_request: pykazoo.restrequest.RestRequest
     """
 
-    def __init__(self, api_url, rest_request=pykazoo.restrequest):
-        self._rest_request = rest_request.RestRequest(api_url)
+    def __init__(self, api_url, rest_request=None):
+        self._rest_request = rest_request
+
+        if self._rest_request is None:
+            self._rest_request = pykazoo.restrequest.RestRequest(api_url)
 
         self.accounts = Accounts(self._rest_request)
         """ Instance of :class:`pykazoo.accounts.Accounts`"""
