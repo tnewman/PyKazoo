@@ -4,12 +4,15 @@ import pykazoo.restrequest
 from unittest import TestCase
 from unittest.mock import create_autospec
 
-mock_rest_request = create_autospec(pykazoo.restrequest.RestRequest)
-
 
 class TestAuthentication(TestCase):
     def setUp(self):
-        self.mock_rest_request = mock_rest_request
+        self.mock_rest_request = create_autospec(
+            pykazoo.restrequest.RestRequest('testurl'))
+
+        # Override Autospec Attributes
+        self.mock_rest_request.auth_token = None
+        self.mock_rest_request.account_id = None
 
         self.authentication = pykazoo.authentication.Authentication(
             self.mock_rest_request)
@@ -22,7 +25,7 @@ class TestAuthentication(TestCase):
         self.mock_rest_request.put.assert_called_with('api_auth', data)
 
     def test_api_auth_returns_dict(self):
-        data = {'auth_token': 'TOKEN'}
+        data = {'auth_token': 'TOKEN', 'data': {'account_id': 'fjeowjaf48f'}}
         self.mock_rest_request.put.return_value = data
 
         return_data = self.authentication.api_auth('SAMPLE_API_KEY')
@@ -30,12 +33,20 @@ class TestAuthentication(TestCase):
         assert data is return_data
 
     def test_api_auth_sets_auth_token(self):
-        data = {'auth_token': 'TOKEN'}
+        data = {'auth_token': 'TOKEN', 'data': {'account_id': 'fjeowjaf48f'}}
         self.mock_rest_request.put.return_value = data
 
         self.authentication.api_auth('SAMPLE_API_KEY')
 
         assert self.mock_rest_request.auth_token is data['auth_token']
+
+    def test_api_auth_sets_account_id(self):
+        data = {'auth_token': 'TOKEN', 'data': {'account_id': 'fjeowjaf48f'}}
+        self.mock_rest_request.put.return_value = data
+
+        self.authentication.api_auth('sfawefaf3ffwfasdfwe')
+
+        assert self.mock_rest_request.account_id is data['data']['account_id']
 
     def test_user_auth_request_call(self):
         self.authentication.user_auth('USER', 'PASSWORD', 'ACCOUNT')
@@ -48,7 +59,7 @@ class TestAuthentication(TestCase):
         self.mock_rest_request.put.assert_called_with('user_auth', data)
 
     def test_user_auth_returns_dict(self):
-        data = {'auth_token': 'TOKEN'}
+        data = {'auth_token': 'TOKEN', 'data': {'account_id': 'fjeowjaf48f'}}
         self.mock_rest_request.put.return_value = data
 
         return_data = self.authentication.user_auth('USER', 'PASS', 'ACCOUNT')
@@ -56,19 +67,39 @@ class TestAuthentication(TestCase):
         assert data is return_data
 
     def test_user_auth_sets_auth_token(self):
-        data = {'auth_token': 'TOKEN'}
+        data = {'auth_token': 'TOKEN', 'data': {'account_id': 'fjeowjaf48f'}}
         self.mock_rest_request.put.return_value = data
 
         self.authentication.user_auth('USER', 'PASS', 'ACCOUNT')
 
         assert self.mock_rest_request.auth_token is data['auth_token']
 
-    def test_authenticated_after_user_auth(self):
-        self.authentication.rest_request.auth_token = {'auth_token': 'TOKEN'}
+    def test_user_auth_sets_account_id(self):
+        data = {'auth_token': 'TOKEN', 'data': {'account_id': 'fjeowjaf48f'}}
+        self.mock_rest_request.put.return_value = data
+
+        self.authentication.user_auth('USER', 'PASS', 'ACCOUNT')
+
+        assert self.mock_rest_request.account_id is data['data']['account_id']
+
+    def test_authenticated_before_auth(self):
+        assert not self.authentication.authenticated
+
+    def test_authenticated_after_auth(self):
+        data = {'auth_token': 'TOKEN', 'data': {'account_id': 'fjeowjaf48f'}}
+        self.mock_rest_request.put.return_value = data
+
+        self.authentication.user_auth('USER', 'PASS', 'ACCOUNT')
 
         assert self.authentication.authenticated
 
-    def test_authenticated_before_user_auth(self):
-        self.authentication.rest_request.auth_token = None
+    def test_account_id_before_auth(self):
+        assert self.authentication.account_id is None
 
-        assert not self.authentication.authenticated
+    def test_account_id_after_auth(self):
+        data = {'auth_token': 'TOKEN', 'data': {'account_id': 'fjeowjaf48f'}}
+        self.mock_rest_request.put.return_value = data
+
+        self.authentication.user_auth('USER', 'PASS', 'ACCOUNT')
+
+        assert self.authentication.account_id == 'fjeowjaf48f'

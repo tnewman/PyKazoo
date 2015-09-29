@@ -26,6 +26,7 @@ class Authentication:
                                      {'data': {'api_key': api_key}})
 
         self.rest_request.auth_token = data['auth_token']
+        self.rest_request.account_id = data['data']['account_id']
 
         return data
 
@@ -50,6 +51,7 @@ class Authentication:
                                                'account_name': account_name}})
 
         self.rest_request.auth_token = data['auth_token']
+        self.rest_request.account_id = data['data']['account_id']
 
         return data
 
@@ -63,3 +65,12 @@ class Authentication:
         """
 
         return self.rest_request.auth_token is not None
+
+    @property
+    def account_id(self):
+        """ Gets the ID of the account used for authentication.
+        :return: ID of the account used for authentication.
+        :rtype: str
+        """
+
+        return self.rest_request.account_id
