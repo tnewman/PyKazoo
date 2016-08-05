@@ -15,3 +15,8 @@ platform, which exclusively uses a JSON API for configuration. The goal of PyKaz
 developers to interface with this excellent software to start building great applications.
 
 .. _`2600hz Kazoo`: https://2600hz.atlassian.net/wiki/display/docs/Overview
+
+Pull Requests Welcome
+---------------------
+
+Pull requests with are welcome! Please include the tests :)
